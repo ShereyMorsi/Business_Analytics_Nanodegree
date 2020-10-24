@@ -18,6 +18,7 @@ In this project, a query a digital music store database which holds information 
 In this project, an interactive dashboards have been built with Tableau and use them to discover and communicate insights from data. 
 The dataset is used which is about flight delays in the US to visualize the quality of airlines and airports, find the best times to fly, and more.
 Check My Project Submission
+https://github.com/ShereyMorsi/Business_Analytics_Program/tree/main/%5B3%5DProject3
 
 My Certificate of Completion
 https://github.com/ShereyMorsi/Business_Analytics_Program/blob/main/Images/Business.Analytics.Certificate.pdf

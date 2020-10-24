@@ -5,6 +5,7 @@ Overview
 This project is about exploring an interactive data dashboard to uncover insights. By writing a short report explaining each insight, and how you found the information to reach your conclusion from the dashboard.
 Project Submission
 Check My Project Submission
+https://github.com/ShereyMorsi/Business_Analytics_Program/blob/main/%5B1%5DProject1/Project-1.pdf
 
 Project 2: Query a Digital Music Store Database
 Overview

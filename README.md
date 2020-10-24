@@ -11,6 +11,8 @@ Project 2: Query a Digital Music Store Database
 Overview
 In this project, a query a digital music store database which holds information regarding the store’s media, employees, and customers. The the database has been used to help the store gain an understanding of the types of music that are purchased, 
    where customers live, and how the company might optimize their business practices.
+   Check My Project Submission
+   https://github.com/ShereyMorsi/Business_Analytics_Program/tree/main/%5B2%5DProject2.SQL
    
    Project 3: Build Data Dashboards
 In this project, an interactive dashboards have been built with Tableau and use them to discover and communicate insights from data. 

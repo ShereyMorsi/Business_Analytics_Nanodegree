@@ -1,0 +1,94 @@
+/*Query(1)For getting the total number of Album: 347 rows*/
+SELECT
+  AlbumID,
+  Album.Title,
+  Artist.Name
+FROM Album
+JOIN Artist
+  ON Album.Artistid = Artist.ArtistId;
+
+  /*OR Query(1) */
+  SELECT COUNT(*) FROM (SELECT Album.Title, Artist.Name
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.Artistid);
+
+/*Query(1)For getting the total number of Album: 347 rows*/
+SELECT AlbumID, Album.Title, Artist.Name
+FROM Album
+JOIN Artist
+ON Album.Artistid = Artist.ArtistId;
+
+  /* OR:*/
+SELECT COUNT(*) FROM (SELECT Album.Title, Artist.Name
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.Artistid);
+
+/* (1)	For getting the total number of  Artist*/
+ 	SELECT COUNT(artistid)
+  	FROM Artist;
+
+/*Query(2)	For getting number of albums for each artist*/
+SELECT a.name, count(b.albumid)
+FROM Artist a
+JOIN Album b
+ON a.artistid = b.artistid
+GROUP BY a.name
+ORDER BY count(b.albumid) DESC;
+
+/*Query(3)	For getting number of songs for each artist*/
+SELECT a.artistid, a.name, count(t.trackid)
+FROM Artist a
+JOIN Album  b
+ON a.artistid = b.artistid
+JOIN Track t
+ON b.albumid = t.albumid
+JOIN genre g
+ON g.genreid = t.genreid
+GROUP BY a.name
+ORDER BY count(t.trackid) DESC;
+
+/*Query(4)	For getting most songs playing in playlist*/
+SELECT count(t.trackid), t.name, pl.name
+FROM Track t
+JOIN PlaylistTrack p
+ON t.trackid = p.trackid
+JOIN Playlist  pl
+ON p.playlistid = pl.playlistid
+GROUP By pl.name
+ORDER BY Count(t.trackid) DESC;
+
+/*Query(5)	For getting the distribution of customers among countries*/
+SELECT  country, count(customerid)
+FROM Customer
+GROUP by country
+ORDER by count(customerid)DESC;
+
+/*Query(6) For getting the number of invoices for each country*/
+SELECT billingcountry, count(invoiceid)
+FROM Invoice
+GROUP by billingcountry
+ORDER by count(invoiceid) DESC;
+
+/*Query(7)	For getting total revenue for each country*/
+SELECT billingcountry, SUM(total*UnitPrice) Total_Revenue
+FROM Invoice I
+JOIN InvoiceLine IL
+ON I.Invoiceid = IL.invoiceid
+GROUP BY billingcountry
+Order By Total_Revenue DESC;
+
+/* Query (8)	For getting the most music purchases*/
+SELECT MAX(Purchases) AS Purchases, Country, Name
+FROM (SELECT SUM(lL.Quantity) AS Purchases, i.BillingCountry Country, g.Name Name
+FROM Genre g
+JOIN Track t
+ON g. GenreId = t.GenreId
+JOIN InvoiceLine lL
+ON t.TrackId = lL.TrackId
+JOIN Invoice i
+ON lL.InvoiceId = i.InvoiceId
+GROUP BY 2, 3) AS sub
+GROUP BY 2
+ORDER BY 1 DESC;	
